@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FeatherIcon from 'feather-icons-react';
 
 
 import logocnc from '../../assets/images/transparentlogocnc.png';
@@ -19,13 +19,13 @@ export const Footer = () => {
                 <ul>
                     <li>
                         <a href="https://www.instagram.com/caminoyacreaciones/">
-                        
+                        <FeatherIcon icon="instagram" />
 
                         </a>
                     </li>
                     <li>
                         <a href="https://www.facebook.com/caminoyacreaciones">
-                        
+                        <FeatherIcon icon="facebook" />
                         </a>
                     </li>
                 </ul>

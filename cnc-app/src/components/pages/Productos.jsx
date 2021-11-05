@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {Product} from '../../domain/products'
 import Cart from '../../domain/cart'
 import {ProductRenderer} from '../main/ProductRenderer'
+import FeatherIcon from 'feather-icons-react';
 
 
 
@@ -10,18 +11,23 @@ export const Productos = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([])
     const [total, setTotal] = useState(0)
+    const [filteredProducts, setFilteredProducts] = useState([])
 
     
 
     useEffect(()=>{
         fetch("http://localhost:4000/products")
             .then(data=>data.json())
-            .then((data) => setProducts(
-            data.map(value => {
-                return new Product(value.id, value.name, value.description, value.price, value.stock, value.img)
-        })),
-        error => console.log(error))
-    },[]) 
+            .then((data) => {
+                const newProducts = data.map(value => {
+                    return new Product(value.id, value.name, value.description, value.price, value.stock, value.img)
+                })
+                setProducts(newProducts)
+                setFilteredProducts(newProducts)
+                } )
+            .catch((error) => console.log(error))
+            },[])
+    
     
     const addToCart = (Product) =>{
             setTotal(0)
@@ -37,17 +43,28 @@ export const Productos = () => {
         setTotal(aux)
     },[cart])
 
-   /* useEffect(()=>{
-        fetch("http://localhost:4000/products")
-            .then(data=>data.json())
-            .then((products) => products.filteredProducts(products.map(products => {
-                
-               */
+    const filterProducts = (event) =>{
+        const value = event.target.value
+        let filteredProducts = products.filter(product =>
+            product.name.toLowerCase().includes(value.toLowerCase()) ||
+            product.description.toLowerCase().includes(value.toLowerCase()) ||
+            product.id == value
+        )
+        setFilteredProducts(filteredProducts)
+    }
+
+    const deleteItem = (index) => {
+        let newCart = [...cart]
+        if (index > -1) {
+           newCart.splice(index, 1);
+        }
+        setCart(newCart)
+        }
     
     
     return (
         <>
-            <section class="texto-productos">
+            <section className="texto-productos">
                 <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
                 <br />
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero recusandae exercitationem
@@ -61,9 +78,9 @@ export const Productos = () => {
                     deserunt architecto voluptas quisquam? Repudiandae.</p>
 
             </section>
-            <section class="buscador">
+            <section className="buscador">
                 <label for="searchBar">Buscar</label>
-                <input id="searchBar" />
+                <input id="searchBar" onChange={filterProducts} />
 
                 <section id="SearchPlace"></section>
             </section>
@@ -80,11 +97,13 @@ export const Productos = () => {
                                     </>
                                 ):
                                 (
-                                    products.map(product => 
-                                        <ProductRenderer 
-                                            product={product} 
-                                            addToCart={addToCart}>
-                                        </ProductRenderer>
+                                    filteredProducts.map(product => 
+                                        <div key={product.id}>
+                                            <ProductRenderer 
+                                                product={product} 
+                                                addToCart={addToCart}>
+                                            </ProductRenderer>
+                                        </div>
                                     )
                                 )
                             }
@@ -102,13 +121,14 @@ export const Productos = () => {
                                     </>
                                 ):
                             (
-                                cart.map (value => {
+                                cart.map ((value, index) => {
                                     console.log(value)
                                     return (
-                                        <li>
-                                            <p>{value.product.name}</p>
+                                        <li key={index}>
+                                            <button id="delete" onClick={() => deleteItem(index)}>X</button> <p>{value.product.name}</p>
                                             <input id={`quantity${value.product.id}`} value={value.quantity}/>
-                                            <p id={`priceById${value.product.id}`}>${value.product.price * value.quantity}</p>
+                                            <p id={`priceById${value.product.id}`}>${value.product.price * value.quantity}</p> 
+                                            
                                         </li>
                                     )
                                 })

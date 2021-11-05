@@ -1,5 +1,6 @@
 import React from 'react';
 import logocnc from '../../assets/images/transparentlogocnc.png';
+import FeatherIcon from 'feather-icons-react';
 import {   BrowserRouter as Router,   Switch,   Route,   Link } from "react-router-dom";
 
 
@@ -11,7 +12,7 @@ export const Header = () => {
               <img className="img-nav" src={logocnc} alt="Logo CNC" />
 
               <input type="checkbox" id="boton-menu" />
-              <label for="boton-menu"><i data-feather="menu"></i></label>
+              <label for="boton-menu"><FeatherIcon icon="menu" /></label>
               <ul className="nav-items">
                   <li><Link to="/">Inicio</Link></li>
                   <li> <Link to="/Productos">Productos</Link></li>

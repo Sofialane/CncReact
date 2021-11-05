@@ -481,16 +481,22 @@ footer section {
 
 #cart-holder li {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-columns: 0.5fr 4fr 1fr 1fr;
     margin-bottom: 10px;
 }
 
-#Carrito p {
-    float: right;
-}
 
 #cart-holder input  {
     width: 30px;
+}
+
+#delete {
+    width: 15px;
+    height: 15px;
+    float: right;
+    background-color: #9f95b1c4;
+    border: none;
+    font-family: sans-serif;
 }
 
 
@@ -704,12 +710,20 @@ footer section {
         grid-template-columns: 1fr;
     }
 
-    #contenido #productos, #contenido #Carrito{
+    #contenido #Productos, #contenido #Carrito{
         width: 100%;
     }
 
     .ilustracion img {
         width: 300px;
+    }
+
+    #formulario {
+        width: 85%;
+    }
+
+    #formulario input, textarea {
+        margin-left: 10%;
     }
 
 
