@@ -15,7 +15,7 @@ export const ProductRenderer = ({product, addToCart}) => {
                     <strong>${product.price}</strong>
                 </div>
                 <div className="Agregar">
-                    <button onClick={() => addToCart(product.id)}>Agregar</button>
+                    <button onClick={() => addToCart(product)}>Agregar</button>
                 </div>
             </div>
         </span>

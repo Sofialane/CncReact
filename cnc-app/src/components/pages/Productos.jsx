@@ -23,20 +23,20 @@ export const Productos = () => {
         error => console.log(error))
     },[]) 
     
-    const addToCart = (product) =>{
+    const addToCart = (Product) =>{
             setTotal(0)
-            setCart(cart.concat(new Cart(product)))
+            setCart(cart.concat(new Cart(Product)))
         }
 
         
-    /*useEffect(()=>{
+    useEffect(()=>{
         let aux = 0
-        cart.forEach(product => {
-            aux += product.price * product.quantity
+        cart.forEach(value => {
+            aux += value.product.price * value.quantity
         })
         setTotal(aux)
     },[cart])
-*/
+
    /* useEffect(()=>{
         fetch("http://localhost:4000/products")
             .then(data=>data.json())
@@ -102,12 +102,13 @@ export const Productos = () => {
                                     </>
                                 ):
                             (
-                                cart.map (product => {
+                                cart.map (value => {
+                                    console.log(value)
                                     return (
                                         <li>
-                                            <p>{product.name}</p>
-                                            <input id={`quantity${product.id}`} value={product.quantity}/>
-                                            <p id={`priceById${product.id}`}>${product.price * product.quantity}</p>
+                                            <p>{value.product.name}</p>
+                                            <input id={`quantity${value.product.id}`} value={value.quantity}/>
+                                            <p id={`priceById${value.product.id}`}>${value.product.price * value.quantity}</p>
                                         </li>
                                     )
                                 })
