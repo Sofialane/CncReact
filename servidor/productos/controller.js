@@ -12,9 +12,9 @@ async function getProducts(req, res){
     const result = await client.query("select * from public.productos")
     console.log(result.rows);
     await client.end();
-    res.send({
-        products: res.rows
-    });
+    res.send(
+        result.rows
+    );
 }
 
 let products = [
