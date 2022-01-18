@@ -838,6 +838,19 @@ footer section {
         margin-left: 10%;
     }
 
+    #login {
+        width: 80%;
+        margin: 10% 10% 50% 10%;
+    }
+
+    #login form {
+        width: 80%;
+    }
+
+    #login form input {
+        width: 100%;
+    }
+
 
 
 }
