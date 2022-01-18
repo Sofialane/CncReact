@@ -98,7 +98,7 @@ export const Productos = () => {
                                 ):
                                 (
                                     filteredProducts.map(product => 
-                                        <div key={product.id}>
+                                        <div key={product.id + product.name}>
                                             <ProductRenderer 
                                                 product={product} 
                                                 addToCart={addToCart}>

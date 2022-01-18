@@ -15,7 +15,8 @@ async function postFormulario(req, res){
         [formulario.nombre, formulario.correo, formulario.telefono, formulario.mensaje])
         console.log(result.rows);
         await client.end();
-        res.status(200).send(result.rows);
+        /*res.status(200).send(result.rows);*/
+        res.redirect('http://localhost:3000/Pedidos/');
     }catch(error){
         console.error('No se ha podido conectar a BD')
         res.sendStatus(510)

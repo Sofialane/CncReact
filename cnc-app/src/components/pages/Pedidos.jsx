@@ -12,11 +12,6 @@ export const Pedidos = () => {
 
 
 
-
-
-
-
-
     return (
         <>
         
@@ -32,7 +27,7 @@ export const Pedidos = () => {
                 <br/>
                 <p>Por cualquier consulta, dejenos su mensaje aqui y nos pondermos en contacto a la brevedad.</p>
             </section>
-            <form method='POST' action='http://localhost:4000/formulario' encType='application/json' id="formulario">
+            <form method='POST' action='http://localhost:4000/formulario/' id="formulario">
                 <h2>Consulta</h2>
                 <label>Nombre</label>
                 <input 
@@ -67,9 +62,8 @@ export const Pedidos = () => {
                     value={mensaje}>
                 </textarea>
                 <input
-                    action='submit'
                     id="boton"
-                    type="button" 
+                    type="submit" 
                     value="ENVIAR"/>
             </form>
                     
