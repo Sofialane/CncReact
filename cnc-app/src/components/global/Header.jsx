@@ -35,7 +35,7 @@ export const Header = () => {
                 </ul>
                 <div className="lado-derecho">
                     <div className="usuario">
-                        <FeatherIcon icon="user" />
+                        <Link to="/Login"> <FeatherIcon icon="user" /> </Link>
                     </div>
                     <h1>|</h1>
                     <div className="carrito-general">

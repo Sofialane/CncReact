@@ -15,6 +15,7 @@ import Productos from './components/pages/Productos';
 import Pedidos from './components/pages/Pedidos';
 import Informacion from './components/pages/Informacion';
 import Carrito from './components/pages/Carrito';
+import Login from './components/pages/Login';
 
 
 
@@ -46,6 +47,9 @@ function App() {
       </Route>
       <Route path="/Carrito"><Carrito/>
       </Route>
+      <Route path="/Login"><Login/>
+      </Route>
+
     </Switch>
     </Router>
       

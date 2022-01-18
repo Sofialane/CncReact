@@ -6,16 +6,21 @@ const config = {
     password:'admin'
 }
 
+
 async function getProducts(req, res){
-    const client = new Client(config)
-    await client.connect();
-    const result = await client.query("select * from public.productos")
-    console.log(result.rows);
-    await client.end();
-    res.send(
-        result.rows
-    );
-}
+    try {
+        const client = new Client(config)
+        await client.connect();
+        const result = await client.query("select * from public.productos")
+        console.log(result.rows);
+        await client.end();
+        res.status(200).send(result.rows);
+    }catch(error){
+        console.error('No se ha podido conectar a BD')
+        res.sendStatus(510)
+        
+}}
+
 
 let products = [
     {

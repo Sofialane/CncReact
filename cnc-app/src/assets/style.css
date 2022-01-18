@@ -80,7 +80,7 @@ nav a:hover {
 }
 
 .nav-menu .lado-derecho .usuario{
-    padding: 8px 8px 8px 0;
+    padding: 0px 0px 0px 8px;
 }
 
 .nav-menu h1 {
@@ -101,6 +101,54 @@ header label:hover {
 
 .feather.feather-menu {
     display: none;
+}
+
+/*INICIO SESION*/
+#login {
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    background-color: #aa8be742;
+    padding: 5% 0% 5% 0%;
+    border: 1px solid lavender;
+    width: 35%;
+    border-radius: 35px;
+    margin-left: 25vw;
+    margin-top: 10%;
+    margin-bottom: 30%;
+}
+
+
+#login h1 {
+    padding-bottom: 30px;
+}
+
+#login form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#login label, input {
+    margin: 5px 0px;
+    width: 25vw;
+    padding: 5px;
+}
+
+#login input {
+    border-radius: 10px;
+    border: none;
+    background-color: #F7F7F7;
+    border: 2px solid transparent;
+    line-height: 30px;
+    transition: .3s ease all;
+
+}
+
+#login input:focus {
+    border: 2px solid black;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
 }
 
 .cakepost{
@@ -409,81 +457,6 @@ footer section {
     background: #fdfdfd;
     
 }
-
-.mensaje_error_formulario {
-    padding: 20px 0;
-}
-
-.enviado {
-    padding: 20px 0;
-
-}
-
-.mensaje_error{
-    font-size: 12px;
-    margin: 0px;
-    display: none;
-}
-
-.mensaje_error-activo{
-    display: block;
-}
-
-.validacion {
-    position: relative;
-    right: 35px;
-    bottom: -8px;
-    z-index: 100;
-    font-size: 16px;
-    opacity: 0;
-}
-
-.validacion_textarea{
-    position: relative;
-    right: 35px;
-    bottom: 170px;
-    z-index: 100;
-    font-size: 16px;
-    opacity: 0;
-}
-
-.error_formulario {
-    margin: 12px 20px 0 0;
-    position: absolute;
-    left: 33%;
-    display: none;
-}
-
-.mensaje_error_formulario {
-    margin-left: 27%;
-    width: 45%;
-    height: 45px;
-    line-height: 45px;
-    background-color: rgb(230, 107, 107);
-    padding: 0;
-    border-radius: 10px;
-    color: black;
-    display: none;
-}
-
-.mensaje_error_formulario-activo{
-    display: block;
-}
-
-.mensaje_error_formulario p{
-    margin: 0;
-}
-
-.enviado {
-    font-size: 15px;
-    display: none;
-}
-
-.enviado-activo{
-    display: block;
-}
-
-
 
 
 

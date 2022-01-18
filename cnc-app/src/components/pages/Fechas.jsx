@@ -1,7 +1,6 @@
 import React from 'react'
 import '../../assets/style.css';
-import { Footer } from '../global/Footer'
-import { Header } from '../global/Header'
+
 
 export const Fechas = () => {
     return (
